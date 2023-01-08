@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+
+{% block title %}Sorted Table By Name{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+    <div class="jumbotron">
+        <h2 style="-webkit-text-fill-color: azure;">Students Sorted Table Alphabetically     <a href="{{url_for('students')}}"> <button type="button"class="btn btn-secondary align-right">Back To Index</button></a></h2>
+                <table class="table table-hover table-secondary table-striped">
+                    <tr>
+                        <td><b>id</b></td>
+                        <td><b>name</b></td>
+                        <td><b>semester1</b></td>
+                        <td><b>semester2</b></td>
+                        <td><b>semester3</b></td>
+                        <td><b>semester4</b></td>
+                        <td><b>semester5</b></td>
+                        <td><b>semester6</b></td>
+                        <td><b>semester7</b></td>
+                        <td><b>semester8</b></td>
+                    </tr>
+                    {% for i in all.items %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.semester1}}</td>
+                        <td>{{i.semester2}}</td>
+                        <td>{{i.semester3}}</td>
+                        <td>{{i.semester4}}</td>
+                        <td>{{i.semester5}}</td>
+                        <td>{{i.semester6}}</td>
+                        <td>{{i.semester7}}</td>
+                        <td>{{i.semester8}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </table><hr>
+    </div>
+    </div>
+   
+<!-- Pagination of main table-->
+<div class="text-center">
+    <a href="{{ url_for('sort', page=students.prev_num) }}"
+       class="btn btn-primary
+       {% if students.page == 1 %}disabled{% endif %}">
+        &laquo;
+    </a>
+<!-- Loop through the number of pages to display a link for each-->
+    {% for page_num in students.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+{% if page_num %}
+<!-- Check for the active page and set the link to "Active"-->
+    {% if students.page == page_num %}
+    <a href="{{ url_for('sort', page=page_num) }}"
+       class="btn btn-primary">
+        {{ page_num }}
+    </a>
+    {% else %}
+    <a href="{{ url_for('sort', page=page_num) }}"
+       class="btn btn-primary">
+        {{ page_num }}
+    </a>
+    {% endif %}
+    {% else %}
+    ...
+    {% endif %}
+    {% endfor %}
+    <a href="{{ url_for('sort', page=students.next_num) }}"
+       class="btn btn-primary
+      {% if students.page == students.pages %}disabled{% endif %}">&raquo;
+    </a>
+<p class="text-right mt-3"style="font-weight:bold">
+   Showing page {{ students.page }} of {{ students.pages }}
+</p>
+</div>
+</div>
+{% endblock %}
