@@ -1,5 +1,7 @@
 # JAIDEV_SINGH-STUDENT_MANAGEMENT_FLASK_PYTHON
 Student CRUD using python
+Url : 127.0.0.1:5000
+Method: post 
 The whole Student Exam Management CRUD is based on Python,HTML,FLASK.
 It contains CRUD with semester marks from (1-8).
 With Add new student button you could add new student data.
