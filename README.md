@@ -3,22 +3,18 @@
 A simple **Student Management CRUD app** built with **Python, Flask, and HTML**.  
 This is just a playground project to explore CRUD operations and basic UI integration.
 
----
-
 ## Features
 - **Add Student** – Insert new student data  
 - **Update Student** – Modify existing student details  
 - **Semester Marks (1–8)** – Manage student marks across semesters  
 - **Graph View** – Display a sample chart (with hardcoded values for now)  
 
----
 
 ## Tech Stack
 - Python  
 - Flask  
 - HTML/CSS  
 
----
 
 ## Notes
 - This project is **not production-ready**  
